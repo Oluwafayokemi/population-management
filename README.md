@@ -20,6 +20,7 @@ Enables Create a Population Management System that contains a list of locations 
 ### Tools and Technologies used
 - graphql
 - apollo-server-testing
+- jest
 - mongoose
 - Babel
 
