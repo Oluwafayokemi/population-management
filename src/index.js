@@ -8,10 +8,11 @@ import { ApolloServer } from 'apollo-server';
 import { typeDefs } from './graphql/schema.js'
 import { resolvers } from './graphql/resolvers';
 import mongoose from "mongoose";
-import yupMutationMiddleware from './graphql/middleware/validation.js';
 
 // A map of functions which return data for the schema.
-const db = process.env.DB_URL;
+const {NODE_ENV, DB_URL, DB_TEST_URL} = process.env
+
+const db = NODE_ENV === 'test' ? DB_TEST_URL : DB_URL;
 
 // Connect to MongoDB with Mongoose.
 mongoose
@@ -27,9 +28,9 @@ mongoose
 
 mongoose.set('useFindAndModify', false);
 
-const server = new ApolloServer({
+export const server = new ApolloServer({
   typeDefs,
-  resolvers,
+  resolvers
 });
 
 server.listen().then(({ url }) => {

@@ -44,7 +44,7 @@ export const typeDefs = gql`
         parent_location: String ): Location!
 
       # if false, cancellation failed -- check errors
-      deleteLocation(id: ID!): Location!
+      deleteLocation(id: ID): Location!
 
       signup(name: String, email: String!, role: String!, password: String!): UserUpdateResponse
       login(email: String!, password: String!): UserUpdateResponse # login token
