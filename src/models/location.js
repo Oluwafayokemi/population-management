@@ -29,7 +29,7 @@ const LocationSchema = new Schema({
     required: false,
   },
   parent_location: {
-    type: Number,
+    type: String,
     required: false,
   },
 });
