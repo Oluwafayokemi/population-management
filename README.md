@@ -67,7 +67,7 @@ To create a location:
 - create location
 ```
 mutation {
-  createLocation(location: "Lagos", male_population: 27, female_population: 33){
+  createLocation(location: String, male_population: Integer, female_population: Integer){
       id
       location
       male_population
