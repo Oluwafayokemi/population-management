@@ -56,7 +56,7 @@ npm run dev
 ```
 On your browser navigate to localhost:4000
 * You should see this *
-- 🚀 Server ready at http://localhost:4000/
+`🚀 Server ready at http://localhost:4000/`
 
 - Open postman and test out the endpoints;
 
