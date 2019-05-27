@@ -1,0 +1,35 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Drop database Mutations Create location 1`] = `
+Object {
+  "data": undefined,
+  "errors": Array [
+    [ValidationError: Cannot query field "total_pupulation" on type "Location". Did you mean "total_population", "male_population", or "female_population"?],
+    [ValidationError: Variable "$male_population" of type "String" used in position expecting type "Int".],
+    [ValidationError: Variable "$female_population" of type "String" used in position expecting type "Int".],
+  ],
+  "extensions": undefined,
+  "http": Object {
+    "headers": Headers {
+      Symbol(map): Object {},
+    },
+  },
+}
+`;
+
+exports[`Mutations Create location 1`] = `
+Object {
+  "data": undefined,
+  "errors": Array [
+    [ValidationError: Cannot query field "total_pupulation" on type "Location". Did you mean "total_population", "male_population", or "female_population"?],
+    [ValidationError: Variable "$male_population" of type "String" used in position expecting type "Int".],
+    [ValidationError: Variable "$female_population" of type "String" used in position expecting type "Int".],
+  ],
+  "extensions": undefined,
+  "http": Object {
+    "headers": Headers {
+      Symbol(map): Object {},
+    },
+  },
+}
+`;
