@@ -8,28 +8,28 @@ const Schema = mongoose.Schema;
 // Create the Location Schema.
 const LocationSchema = new Schema({
   id: {
-    type: String,
+    type: Number,
     required: true,
     unique: true
   },
-  male_pupulation: {
+  location: {
+    type: String,
+    required: true,
+  },
+  male_population: {
     type: Number,
     required: false,
   },
-  female_pupulation: {
+  female_population: {
     type: Number,
     required: false,
   },
-  total_pupulation: {
+  total_population: {
     type: Number,
     required: false,
   },
   parent_location: {
-    type: String,
-    required: false,
-  },
-  sub_location: {
-    type: String,
+    type: Number,
     required: false,
   },
 });
