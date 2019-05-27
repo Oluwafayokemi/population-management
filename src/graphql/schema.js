@@ -10,11 +10,11 @@ export const typeDefs = gql`
   }
     type Location {
       id: ID!
+      location: String
       male_population: Int
       female_population: Int
       total_population: Int
-      parent_location: String
-      sub_location: String
+      parent_location: Int
     }
 
     type User {
@@ -27,18 +27,24 @@ export const typeDefs = gql`
     type Mutation {
       # if false, Location fails to create -- check errors
       createLocation(
+        location: String
         male_population: Int,
         female_population: Int, 
         total_population: Int, 
-        parent_location: String, 
-        sub_location: String
+        parent_location: Int, 
         ): Location!
     
       # if false, cancellation failed -- check errors
-      updateLocation(locationId: ID!): LocationUpdateResponse!
+      updateLocation(
+        id: ID
+        location: String
+        male_population: Int
+        female_population: Int
+        total_population: Int
+        parent_location: Int ): Location!
 
       # if false, cancellation failed -- check errors
-      deleteLocation(locationId: ID!): LocationUpdateResponse!
+      deleteLocation(id: ID!): Location!
 
       signup(name: String, email: String!, role: String!, password: String!): UserUpdateResponse
       login(email: String!, password: String!): UserUpdateResponse # login token
@@ -47,7 +53,7 @@ export const typeDefs = gql`
     type LocationUpdateResponse {
       success: Boolean
       message: String
-      getAllLocations: [Location]
+      getOneLocation: Location!
     }
 
     type UserUpdateResponse {

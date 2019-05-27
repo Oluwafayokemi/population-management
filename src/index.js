@@ -4,10 +4,11 @@
 
 //  Modules
 import 'dotenv/config';
-import { ApolloServer, gql } from 'apollo-server';
-import {typeDefs} from './graphql/schema.js'
-import {resolvers} from './graphql/resolvers';
+import { ApolloServer } from 'apollo-server';
+import { typeDefs } from './graphql/schema.js'
+import { resolvers } from './graphql/resolvers';
 import mongoose from "mongoose";
+import yupMutationMiddleware from './graphql/middleware/validation.js';
 
 // A map of functions which return data for the schema.
 const db = process.env.DB_URL;
@@ -24,13 +25,13 @@ mongoose
   .then(() => console.log("MongoDB connected"))
   .catch(err => console.log(err));
 
+mongoose.set('useFindAndModify', false);
+
 const server = new ApolloServer({
-    typeDefs,
-    resolvers,
+  typeDefs,
+  resolvers,
 });
 
 server.listen().then(({ url }) => {
-    console.log(`🚀 Server ready at ${url}`)
+  console.log(`🚀 Server ready at ${url}`)
 });
-
-console.log(process.env.MY_SECRET);
