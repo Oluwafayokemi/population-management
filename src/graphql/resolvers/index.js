@@ -14,9 +14,9 @@ export const resolvers = {
       if (!locations[0]) {
         throw new Error('Failed to get locations because none has been created');
       }
-
       return locations
     },
+
     getOneLocation: async (root, args) => {
       const location = await LocationModel.findOne(args)
       if (!location) {
@@ -40,7 +40,10 @@ export const resolvers = {
       const total = female_population && male_population && female + male;
       const id = randomNumber(10);
       const newlyCreated = new LocationModel({ id, location, male_population: male, female_population: female, total_population: total, parent_location })
-      // const findLocation = LocationModel.find( { location: { $eq: parent_location } } )
+      const findLocation = await LocationModel.findOne( { id: { $eq: parseInt(parent_location, 10) } } )
+      if(!findLocation){
+        throw new Error('The parent location does not exist')
+      }
       if (!location) {
         validationErrors.location = "The location field can not be null"
       }

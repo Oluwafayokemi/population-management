@@ -14,7 +14,7 @@ export const typeDefs = gql`
       male_population: Int
       female_population: Int
       total_population: Int
-      parent_location: Int
+      parent_location: String
     }
 
     type User {
@@ -31,7 +31,7 @@ export const typeDefs = gql`
         male_population: Int,
         female_population: Int, 
         total_population: Int, 
-        parent_location: Int, 
+        parent_location: String, 
         ): Location!
     
       # if false, cancellation failed -- check errors
@@ -41,7 +41,7 @@ export const typeDefs = gql`
         male_population: Int
         female_population: Int
         total_population: Int
-        parent_location: Int ): Location!
+        parent_location: String ): Location!
 
       # if false, cancellation failed -- check errors
       deleteLocation(id: ID!): Location!
