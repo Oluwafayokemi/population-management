@@ -22,7 +22,7 @@
   "homepage": "https://github.com/Oluwafayokemi/population-management#readme",
   "dependencies": {
     "@babel/runtime": "^7.4.5",
-    "apollo-server": "^2.5.0",
+    "apollo-server": "^2.25.3",
     "apollo-server-testing": "^2.5.0",
     "body-parser": "^1.19.0",
     "cors": "^2.8.5",
